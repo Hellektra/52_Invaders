@@ -12,15 +12,24 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.Timer;
+import javax.swing.ImageIcon;
 
 public class NewJFrame extends javax.swing.JFrame {
 
+    private final ImageIcon weaponCoffee;
+    private final ImageIcon weaponStudent;
+    private final ImageIcon weaponBible;
+    private final ImageIcon weaponFlower;
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() 
-    {        
-        initComponents();       
+    public NewJFrame()
+    {
+        initComponents();
+        this.weaponCoffee  = new ImageIcon(getClass().getResource("/kofi.png"));
+        this.weaponStudent = new ImageIcon(getClass().getResource("/foititis.png"));
+        this.weaponBible = new ImageIcon(getClass().getResource("/baible.png"));
+        this.weaponFlower = new ImageIcon(getClass().getResource("/flower.png"));
     }
 
 
@@ -529,11 +538,12 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_heroKeyPressed
 
     int bomb_counter=0;     //afksanetai kathe fora pou dhmiourgeitai vomva
+
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        int key = evt.getKeyCode();           
+        int key = evt.getKeyCode();
         x = hero.getX();
         y = hero.getY();
-        
+
         if(key == java.awt.event.KeyEvent.VK_ENTER)
         {
             jPanel1.remove(start);      //feygei h arxikh eikona
@@ -541,12 +551,12 @@ public class NewJFrame extends javax.swing.JFrame {
             WinPanel.setVisible(false);
             jPanel1.revalidate();
             jPanel1.repaint();
-            
+
             Timer enemy_timer = new Timer(3000,enemy_movement);
-                enemy_timer.start();    
+                enemy_timer.start();
                 et = enemy_timer;
         }
-        
+
         if(key == java.awt.event.KeyEvent.VK_LEFT)
         {
             if(x<40)
@@ -559,35 +569,35 @@ public class NewJFrame extends javax.swing.JFrame {
             if(x>540)
                 hero.setLocation(540, y);
             else
-                hero.setLocation((x+5), y);    
+                hero.setLocation((x+5), y);
         }
-        
+
         if(key == java.awt.event.KeyEvent.VK_SPACE)
         {
-            
-            bombas[bomb_counter]=new JLabel();      //dhmiourgia vomvas kai topothetisi ths sto prwto keli tou pinaka bombas 
+
+            bombas[bomb_counter]=new JLabel();      //dhmiourgia vomvas kai topothetisi ths sto prwto keli tou pinaka bombas
             if(jRadioButton1.isSelected())
-                bombas[bomb_counter].setIcon(new javax.swing.ImageIcon(getClass().getResource("/kofi.png")));
+                bombas[bomb_counter].setIcon(this.weaponCoffee);
             else if(jRadioButton2.isSelected())
-                bombas[bomb_counter].setIcon(new javax.swing.ImageIcon(getClass().getResource("/foititis.png")));
+                bombas[bomb_counter].setIcon(this.weaponStudent);
             else if(jRadioButton3.isSelected())
-                bombas[bomb_counter].setIcon(new javax.swing.ImageIcon(getClass().getResource("/baible.png")));
+                bombas[bomb_counter].setIcon(this.weaponBible);
             else if(jRadioButton4.isSelected())
-                bombas[bomb_counter].setIcon(new javax.swing.ImageIcon(getClass().getResource("/flower.png")));
+                bombas[bomb_counter].setIcon(this.weaponFlower);
             bombas[bomb_counter].setToolTipText("");
             jPanel1.add(bombas[bomb_counter],5);
             bombas[bomb_counter].setBounds(x, y, 50, 50);   //h vomva dhmiourgeite sto shmeio pou vrisketai o paiktis ekeini th stigmh
-                        
-            /**iwanttocry = bombas[bomb_counter];        
-            mylasthope[bomb_counter] = iwanttocry;      **/    
+
+            /**iwanttocry = bombas[bomb_counter];
+            mylasthope[bomb_counter] = iwanttocry;      **/
             Timer bomb_timer = new Timer(500,bomb_movement);
             bomb_timer.start();
-            
+
             bt=bomb_timer;
-            
-            bomb_counter++; 
+
+            bomb_counter++;
         }
-        
+
     }//GEN-LAST:event_formKeyPressed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -595,19 +605,19 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton1StateChanged
-        
+
     }//GEN-LAST:event_jRadioButton1StateChanged
 
     private void jRadioButton2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton2StateChanged
-        
+
     }//GEN-LAST:event_jRadioButton2StateChanged
 
     private void jRadioButton3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton3StateChanged
-        
+
     }//GEN-LAST:event_jRadioButton3StateChanged
 
     private void jRadioButton4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton4StateChanged
-        
+
     }//GEN-LAST:event_jRadioButton4StateChanged
 
     private void jRadioButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MousePressed
@@ -616,12 +626,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jRadioButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MousePressed
        hero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pwft.png")));
-        
+
     }//GEN-LAST:event_jRadioButton2MousePressed
 
     private void jRadioButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton3MousePressed
     hero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pwb.png")));
-        
+
     }//GEN-LAST:event_jRadioButton3MousePressed
 
     private void jRadioButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton4MousePressed
@@ -631,7 +641,7 @@ public class NewJFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -655,24 +665,24 @@ public class NewJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewJFrame().setVisible(true);
-                
-                
+
+
             }
         });
     }
-    
+
 int x;
 int y;
 int enemy_y;
 
 Timer bt;   //axreiasto na'nai
-Timer et; 
+Timer et;
 
 JLabel bombas[] = new JLabel[100];
 
-private ActionListener enemy_movement = new ActionListener() 
+private ActionListener enemy_movement = new ActionListener()
                 {
-                    public  void actionPerformed(ActionEvent evt) 
+                    public  void actionPerformed(ActionEvent evt)
                     {
                         enemy_movement(enemy1);
                         enemy_movement(enemy2);
@@ -719,141 +729,141 @@ private void enemy_movement(JLabel enemy)
         GOPanel.setVisible(true);
         jPanel1.revalidate();
         jPanel1.repaint();
-        
+
         et.stop();
         bt.stop();
     }
     else
     enemy.setLocation(enemy_x, enemy_y+10);
-    
+
     if((!enemy1.isDisplayable()) && (!(enemy2.isDisplayable())) && (!enemy3.isDisplayable()) && (!enemy4.isDisplayable()) && (!enemy5.isDisplayable()) && (!enemy6.isDisplayable()) && (!enemy7.isDisplayable()) && (!enemy8.isDisplayable()) && (!enemy9.isDisplayable()) && (!enemy10.isDisplayable()) && (!enemy11.isDisplayable()) && (!enemy12.isDisplayable()) && (!enemy13.isDisplayable()) && (!enemy14.isDisplayable()) && (!enemy15.isDisplayable()) && (!enemy16.isDisplayable()) && (!enemy17.isDisplayable()) && (!enemy18.isDisplayable()) && (!enemy19.isDisplayable()) && (!enemy20.isDisplayable()) && (!enemy21.isDisplayable()) && (!enemy22.isDisplayable()) && (!enemy23.isDisplayable()) && (!enemy24.isDisplayable()) && (!enemy25.isDisplayable()) && (!enemy26.isDisplayable()) && (!enemy27.isDisplayable()) && (!enemy28.isDisplayable()) && (!enemy29.isDisplayable()) && (!enemy30.isDisplayable()) && (!enemy31.isDisplayable()) && (!enemy32.isDisplayable()))
     {
         WinPanel.setVisible(true);
         jPanel1.revalidate();
         jPanel1.repaint();
         et.stop();
-        bt.stop();        
+        bt.stop();
     }
 }
 
-private ActionListener bomb_movement = new ActionListener() 
+private ActionListener bomb_movement = new ActionListener()
                 {
-  
-                    public  void actionPerformed(ActionEvent evt) 
+
+                    public  void actionPerformed(ActionEvent evt)
                     {
-                        
+
                         int count = bomb_counter-1;
-                        
+
                         int b_x = bombas[count].getX();
                         int b_y = bombas[count].getY();
                         bombas[count].setLocation(b_x, b_y-10);
-                        
+
                         if(enemy1.isDisplayable() && (b_x<=enemy1.getX()+10 && b_x>=enemy1.getX()-10) && (b_y-10<=enemy1.getY()+5 && b_y-10 >=enemy1.getY()-10))
                         {
                             theKill(bombas[count],enemy1);
                         }
-                          
+
                         else if(enemy2.isDisplayable() && (b_x<=enemy2.getX()+10 && b_x>=enemy2.getX()-10) && (b_y-10<=enemy2.getY()+10 && b_y-10 >=enemy2.getY()-10))
                         {
                             theKill(bombas[count],enemy2);
                         }
-                        
+
                         else if(enemy3.isDisplayable() && (b_x<=enemy3.getX()+10 && b_x>=enemy3.getX()-10) && (b_y-10<=enemy3.getY()+10 && b_y-10 >=enemy3.getY()-10))
                         {
                             theKill(bombas[count],enemy3);
                         }
-                        
+
                         else if(enemy4.isDisplayable() && (b_x<=enemy4.getX()+10 && b_x>=enemy4.getX()-10) && (b_y-10<=enemy4.getY()+10 && b_y-10 >=enemy4.getY()-10))
                         {
                             theKill(bombas[count],enemy4);
                         }
-                        
+
                         else if(enemy5.isDisplayable() && (b_x<=enemy5.getX()+10 && b_x>=enemy5.getX()-10) && (b_y-10<=enemy5.getY()+10 && b_y-10 >=enemy5.getY()-10))
                         {
                             theKill(bombas[count],enemy5);
                         }
-                        
+
                         else if(enemy6.isDisplayable() && (b_x<=enemy6.getX()+10 && b_x>=enemy6.getX()-10) && (b_y-10<=enemy6.getY()+10 && b_y-10 >=enemy6.getY()-10))
                             theKill(bombas[count],enemy6);
-                        
+
                         else if(enemy7.isDisplayable() && (b_x<=enemy7.getX()+10 && b_x>=enemy7.getX()-10) && (b_y-10<=enemy7.getY()+10 && b_y-10 >=enemy7.getY()-10))
                             theKill(bombas[count],enemy7);
-                        
+
                         else if(enemy8.isDisplayable() && (b_x<=enemy8.getX()+10 && b_x>=enemy8.getX()-10) && (b_y-10<=enemy8.getY()+10 && b_y-10 >=enemy8.getY()-10))
                             theKill(bombas[count],enemy8);
-                        
+
                         else if(enemy9.isDisplayable() && (b_x<=enemy9.getX()+10 && b_x>=enemy9.getX()-10) && (b_y-10<=enemy9.getY()+10 && b_y-10 >=enemy9.getY()-10))
                             theKill(bombas[count],enemy9);
-                        
+
                         else if(enemy10.isDisplayable() && (b_x<=enemy10.getX()+10 && b_x>=enemy10.getX()-10) && (b_y-10<=enemy10.getY()+10 && b_y-10 >=enemy10.getY()-10))
                             theKill(bombas[count],enemy10);
-                        
+
                         else if(enemy11.isDisplayable() && (b_x<=enemy11.getX()+10 && b_x>=enemy11.getX()-10) && (b_y-10<=enemy11.getY()+10 && b_y-10 >=enemy11.getY()-10))
                             theKill(bombas[count],enemy11);
-                        
+
                         else if(enemy12.isDisplayable() && (b_x<=enemy12.getX()+10 && b_x>=enemy12.getX()-10) && (b_y-10<=enemy12.getY()+10 && b_y-10 >=enemy12.getY()-10))
                             theKill(bombas[count],enemy12);
-                        
+
                         else if(enemy13.isDisplayable() && (b_x<=enemy13.getX()+10 && b_x>=enemy13.getX()-10) && (b_y-10<=enemy13.getY()+10 && b_y-10 >=enemy13.getY()-10))
                             theKill(bombas[count],enemy13);
-                        
+
                         else if((enemy14.isDisplayable() && b_x<=enemy14.getX()+10 && b_x>=enemy14.getX()-10) && (b_y-10<=enemy14.getY()+10 && b_y-10 >=enemy14.getY()-10))
                             theKill(bombas[count],enemy14);
-                        
+
                         else if(enemy15.isDisplayable() && (b_x<=enemy15.getX()+10 && b_x>=enemy15.getX()-10) && (b_y-10<=enemy15.getY()+10 && b_y-10 >=enemy15.getY()-10))
                             theKill(bombas[count],enemy15);
-                        
+
                         else if(enemy16.isDisplayable() && (b_x<=enemy16.getX()+10 && b_x>=enemy16.getX()-10) && (b_y-10<=enemy16.getY()+10 && b_y-10 >=enemy16.getY()-10))
                             theKill(bombas[count],enemy16);
-                        
+
                         else if(enemy17.isDisplayable() && (b_x<=enemy17.getX()+10 && b_x>=enemy17.getX()-10) && (b_y-10<=enemy17.getY()+10 && b_y-10 >=enemy17.getY()-10))
                             theKill(bombas[count],enemy17);
-                        
+
                         else if(enemy18.isDisplayable() && (b_x<=enemy18.getX()+10 && b_x>=enemy18.getX()-10) && (b_y-10<=enemy18.getY()+10 && b_y-10 >=enemy18.getY()-10))
                             theKill(bombas[count],enemy18);
-                        
+
                         else if(enemy19.isDisplayable() && (b_x<=enemy19.getX()+10 && b_x>=enemy19.getX()-10) && (b_y-10<=enemy19.getY()+10 && b_y-10 >=enemy19.getY()-10))
                             theKill(bombas[count],enemy19);
-                        
+
                         else if(enemy20.isDisplayable() && (b_x<=enemy20.getX()+10 && b_x>=enemy20.getX()-10) && (b_y-10<=enemy20.getY()+10 && b_y-10 >=enemy20.getY()-10))
                             theKill(bombas[count],enemy20);
-                        
+
                         else if(enemy21.isDisplayable() && (b_x<=enemy21.getX()+10 && b_x>=enemy21.getX()-10) && (b_y-10<=enemy21.getY()+10 && b_y-10 >=enemy21.getY()-10))
                             theKill(bombas[count],enemy21);
-                        
+
                         else if(enemy22.isDisplayable() && (b_x<=enemy22.getX()+10 && b_x>=enemy22.getX()-10) && (b_y-10<=enemy22.getY()+10 && b_y-10 >=enemy22.getY()-10))
                             theKill(bombas[count],enemy22);
-                        
+
                         else if(enemy23.isDisplayable() && (b_x<=enemy23.getX()+10 && b_x>=enemy23.getX()-10) && (b_y-10<=enemy23.getY()+10 && b_y-10 >=enemy23.getY()-10))
                             theKill(bombas[count],enemy23);
-                        
+
                         else if((enemy24.isDisplayable() && b_x<=enemy24.getX()+10 && b_x>=enemy24.getX()-10) && (b_y-10<=enemy24.getY()+10 && b_y-10 >=enemy24.getY()-10))
                             theKill(bombas[count],enemy24);
-                        
+
                         else if(enemy25.isDisplayable() && (b_x<=enemy25.getX()+10 && b_x>=enemy25.getX()-10) && (b_y-10<=enemy25.getY()+10 && b_y-10 >=enemy25.getY()-10))
                             theKill(bombas[count],enemy25);
-                        
+
                         else if(enemy26.isDisplayable() && (b_x<=enemy26.getX()+10 && b_x>=enemy26.getX()-10) && (b_y-10<=enemy26.getY()+10 && b_y-10 >=enemy26.getY()-10))
                             theKill(bombas[count],enemy26);
-                                    
+
                         else if(enemy27.isDisplayable() && (b_x<=enemy27.getX()+10 && b_x>=enemy27.getX()-10) && (b_y-10<=enemy27.getY()+10 && b_y-10 >=enemy27.getY()-10))
                             theKill(bombas[count],enemy27);
-                        
+
                         else if(enemy28.isDisplayable() && (b_x<=enemy28.getX()+10 && b_x>=enemy28.getX()-10) && (b_y-10<=enemy28.getY()+10 && b_y-10 >=enemy28.getY()-10))
                             theKill(bombas[count],enemy28);
-                        
+
                         else if(enemy29.isDisplayable() && (b_x<=enemy29.getX()+10 && b_x>=enemy29.getX()-10) && (b_y-10<=enemy29.getY()+10 && b_y-10 >=enemy29.getY()-10))
                             theKill(bombas[count],enemy29);
-                        
+
                         else if(enemy30.isDisplayable() && (b_x<=enemy30.getX()+10 && b_x>=enemy30.getX()-10) && (b_y-10<=enemy30.getY()+10 && b_y-10 >=enemy30.getY()-10))
                             theKill(bombas[count],enemy30);
-                        
+
                         else if(enemy31.isDisplayable() && (b_x<=enemy31.getX()+10 && b_x>=enemy31.getX()-10) && (b_y-10<=enemy31.getY()+10 && b_y-10 >=enemy31.getY()-10))
                             theKill(bombas[count],enemy31);
-                        
+
                         else if(enemy32.isDisplayable() && (b_x<=enemy32.getX()+10 && b_x>=enemy32.getX()-10) && (b_y-10<=enemy32.getY()+10 && b_y-10 >=enemy32.getY()-10))
-                            theKill(bombas[count],enemy32);   
-                       
+                            theKill(bombas[count],enemy32);
+
                     }
                 };
 
@@ -871,8 +881,8 @@ private void theKill(JLabel bomb, JLabel enemy)
             jPanel1.repaint();
             bt.stop();
         }
-}    
-    
+}
+
 
 //please make it work!!!!
 //JLabel iwanttocry;
@@ -937,6 +947,6 @@ private void theKill(JLabel bomb, JLabel enemy)
     private javax.swing.JLabel youwin;
     // End of variables declaration//GEN-END:variables
     //JLabel enemyz[] = {enemy1,enemy2,enemy3,enemy4,enemy5,enemy6,enemy7,enemy8,enemy9,enemy10,enemy11,enemy12,enemy13,enemy14,enemy15,enemy16,enemy17,enemy18,enemy19,enemy20,enemy21,enemy22,enemy23,enemy24,enemy25,enemy26,enemy27,enemy28,enemy29,enemy30,enemy31,enemy32};
-   
-    
+
+
 }
